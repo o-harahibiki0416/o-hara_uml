@@ -1,0 +1,13 @@
+@startuml
+skinparam classAttributeIconSize 0
+class robodog {
+ -現在の時刻
+ -名前
+ -二つの整数
+ -挨拶
+ -足し算結果
+ +足し算()
+ +時刻に対応した挨拶をする()
+ +名前を登録する()
+}
+@enduml
