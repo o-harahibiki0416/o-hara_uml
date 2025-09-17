@@ -1,0 +1,43 @@
+@startuml 07_sequence
+hide footbox
+
+actor 訪問者
+participant メニュー画面
+participant ログイン画面
+participant 訪問者一覧画面
+participant 入力内容確認
+participant 認証処理
+participant 訪問者情報
+
+訪問者 -> メニュー画面 : 「ログイン」を選択()
+activate メニュー画面
+メニュー画面 -> ログイン画面 : ログイン画面を表示()
+deactivate メニュー画面
+
+activate ログイン画面
+訪問者 -> ログイン画面 : ユーザーID、パスワードを入力・送信()
+ログイン画面 -> 入力内容確認 : 入力内容確認()
+deactivate ログイン画面
+
+activate 入力内容確認
+入力内容確認 -> 認証処理 : 認証を要求()
+deactivate 入力内容確認
+
+activate 認証処理
+認証処理 -> 訪問者情報 : 訪問者情報を照会()
+activate 訪問者情報
+訪問者情報 --> 認証処理 : 訪問者情報
+deactivate 訪問者情報
+
+opt 認証失敗
+    認証処理 --> ログイン画面 : エラーメッセージを表示()
+    note right of ログイン画面
+        ユーザーIDまたはパスワードが
+        間違っています。
+    end note
+else 認証成功
+    認証処理 --> 訪問者一覧画面 : 訪問者一覧画面を表示()
+end
+deactivate 認証処理
+
+@enduml
