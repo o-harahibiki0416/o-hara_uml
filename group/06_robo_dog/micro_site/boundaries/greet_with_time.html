@@ -1,21 +1,8 @@
-<html>  
-<head>
-    <title>時間で挨拶</title>
-</head>
+<html>
+<head><meta charset="utf-8"><title>挨拶</title></head>
 <body>
-    <h1>時間に応じた挨拶</h1>
-    <p id="greeting"></p>
-    <script>
-        const hour = new Date().getHours();
-        let greeting;
-        if (hour < 12) {
-            greeting = "おはようございます";
-        } else if (hour < 18) {
-            greeting = "こんにちは";
-        } else {
-            greeting = "こんばんは";
-        }
-        document.getElementById("greeting").innerText = greeting;
-    </script>
+    <h1>挨拶</h1>
+    <p>{greeting}！</p>
+    <p><a href="/">メインメニューに戻る</a></p>
 </body>
 </html>
